@@ -1,8 +1,17 @@
 # Instructions for Speaker Setup
 
 ```
-$ git remote add origin git@github.com:PortlandDataScienceGroup/ABC.git
+$ git clone https://github.com/PortlandDataScienceGroup/ABC.git
 $ cd ABC
-$ git checkout -t origin/speaker
+$ git checkout speaker
 $ ./initialize.sh
+$ cp creds.json credentials.json
+```
+
+Now add your github username and password to the credentials file
+
+Once you accept all your eam invites :)
+
+```
+$ ./fetch-all.sh
 ```
