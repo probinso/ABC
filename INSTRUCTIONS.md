@@ -3,6 +3,6 @@
 ```
 $ git clone https://github.com/PortlandDataScienceGroup/ABC.git
 $ cd ABC
-$ git checkout -t origin/speaker
+$ git checkout speaker
 $ ./initialize.sh
 ```
