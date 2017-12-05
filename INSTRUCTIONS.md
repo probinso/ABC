@@ -15,3 +15,5 @@ Once you accept all your eam invites :)
 ```
 $ ./fetch-all.sh
 ```
+
+You will be much happier administrating the talk if you have ssh keys setup
