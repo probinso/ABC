@@ -17,3 +17,7 @@ $ ./fetch-all.sh
 ```
 
 You will be much happier administrating the talk if you have ssh keys setup
+
+```
+$ split -l 10 all_user_names.txt
+```
