@@ -27,6 +27,8 @@ for team in $TEAMS do
          "https://api.github.com/orgs/PortlandDataScienceGroup/repos"
 done;
 
+./add-admins.sh ${cred_file}
+
 ./initialize-ssh.sh
 
 git checkout master
