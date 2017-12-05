@@ -14,7 +14,10 @@ USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
 
 
-for team in $(cat ./teams.txt); do
+TEAMS=$(cat ./teams.txt);
+
+
+for team in $TEAMS do
 
     curl -i \
          -H "application/vnd.github.v3+json" \
@@ -23,3 +26,11 @@ for team in $(cat ./teams.txt); do
          --data '{"name": "${team}","description": "ABC team ${team}","homepage": "https://github.com","private": false,"has_issues": true,"has_projects": true,"has_wiki": true}' \
          "https://api.github.com/orgs/PortlandDataScienceGroup/repos"
 done;
+
+./initialize-ssh.sh
+
+git checkout master
+
+for team in $TEAMS; do
+    git push -u $team master
+done
