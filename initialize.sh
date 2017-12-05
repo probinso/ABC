@@ -5,4 +5,4 @@ do
     git remote add ${color} git@github.com:PortlandDataScienceGroup/${color}.git
 done;
 
-git remote add origin git@github.com:PortlandDataScienceGroup/ABC.git
+# git remote add origin git@github.com:PortlandDataScienceGroup/ABC.git
