@@ -26,7 +26,6 @@ for team in $NAMES; do
          --data "{\"name\": \"${team}\",\"description\": \"ABC team ${team}\",\"homepage\": \"https://github.com\",\"private\": false,\"has_issues\": true,\"has_projects\": true,\"has_wiki\": true}" \
          "https://api.github.com/orgs/${ORG}/repos"
 done;
-exit
 
 ./add-admins.sh ${cred_file} ${TEAMS} ${ADMINS}
 
