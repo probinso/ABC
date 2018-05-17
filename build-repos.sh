@@ -31,10 +31,7 @@ done;
 
 ./initialize-ssh.sh ${cred_file} ${TEAMS}
 
-git checkout master
 
 for team in $NAMES; do
-    git push -u $team master
+    git push -u $team master:master
 done
-
-git checkout speaker
