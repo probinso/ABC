@@ -34,12 +34,14 @@ TEMPLATE="{
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
         issue=B.png
-        DATA=$(echo ${TEMPLATE} | sed s/USER/${uname}/g | sed s/KEY/${issue}/g)
-        echo        curl -i \
-             -H "application/vnd.github.v3+json" \
-             --user "${USER}:${PASS}" \
-             --request POST \
-             --data \"${DATA}\" \
-             "https://api.github.com/repos/${ORG}/${team}/issues"
+        ls images/ | sort -R | tail -3 | while read issue; do
+            DATA=$(echo ${TEMPLATE} | sed s/USER/${uname}/g | sed s/KEY/${issue}/g)
+            echo curl -i \
+                 -H "application/vnd.github.v3+json" \
+                 --user "${USER}:${PASS}" \
+                 --request POST \
+                 --data \"${DATA}\" \
+                 "https://api.github.com/repos/${ORG}/${team}/issues"
+        done
     done
 done
