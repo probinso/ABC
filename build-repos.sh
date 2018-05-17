@@ -31,6 +31,6 @@ done;
 
 git checkout master
 
-for team in $TEAMS; do
+for team in $(cat $TEAMS); do
     git push -u $team master
 done
