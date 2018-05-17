@@ -13,7 +13,7 @@ ADMINS=$3
 
 USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
-ORG=$(cat ${cred_file} | jq --raw-output '.organization')
+ORG=$(cat ${cred_file}  | jq --raw-output '.organization')
 
 
 NAMES=$(cat $TEAMS)
