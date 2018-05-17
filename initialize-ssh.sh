@@ -7,10 +7,10 @@ if (( $# != 2)); then
     exit 1;
 fi;
 
-ORG=$(cat ${cred_file} | jq --raw-output '.organization')
+cred_file=$1
 TEAMS=$2
 
-
+ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 for name in $(cat ${TEAMS});
 do

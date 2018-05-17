@@ -12,8 +12,8 @@ The students are atomatically enrolled onto teams, and assigned `issues` that co
 $ git clone https://github.com/PortlandDataScienceGroup/ABC.git
 $ cd ABC
 $ git checkout speaker
-$ ./initialize.sh
 $ cp creds.json credentials.json
+$ chmod 600 credentials.json
 ```
 
 Now add your github username and password to the `credentials.json` file
@@ -50,9 +50,16 @@ Initialize your repositories
 $ ./build-repos.sh credentials.json teams.txt admins.txt
 ```
 
+When you are done with the workshop, delete the repositories.
+Know that this process creates an access token with delete permissions.
+
+```bash
+$ ./destroy-repos.sh credentials.json teams.txt
+```
+
 # Setup - Stage Two
 
-make a list of all user usernames `all_user_names.txt`
+make a list of all students' usernames `all_user_names.txt`
 
 ---
 
