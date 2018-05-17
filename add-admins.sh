@@ -11,6 +11,7 @@ cred_file=$1;
 
 USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
+ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 
 for team in $(cat ./teams.txt); do
@@ -20,6 +21,6 @@ for team in $(cat ./teams.txt); do
              --user "${USER}:${PASS}" \
              --request PUT \
              --data '{"permission":"admin"}' \
-             "https://api.github.com/repos/PortlandDataScienceGroup/${team}/collaborators/${admin}"
+             "https://api.github.com/repos/${ORG}/${team}/collaborators/${admin}"
     done;
 done;

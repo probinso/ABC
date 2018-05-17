@@ -13,7 +13,7 @@ ifname=$3;
 
 USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
-
+ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 for uname in $(cat ${ifname}); do
     curl -i \
@@ -21,5 +21,5 @@ for uname in $(cat ${ifname}); do
          --user "${USER}:${PASS}" \
          --request PUT \
          --data '{"permission":"push"}' \
-         "https://api.github.com/repos/PortlandDataScienceGroup/${team}/collaborators/${uname}"
+         "https://api.github.com/repos/${ORG}/${team}/collaborators/${uname}"
 done;

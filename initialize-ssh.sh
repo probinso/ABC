@@ -2,10 +2,17 @@
 
 set -euo pipefail
 
+if (( $# != 2)); then
+    printf "Usage: %s <credentials.json> <teams.txt>\n" "$0" >&2;
+    exit 1;
+fi;
 
-for color in $(cat ./teams.txt);
+ORG=$(cat ${cred_file} | jq --raw-output '.organization')
+TEAMS=$2
+
+
+
+for name in $(cat ${TEAMS});
 do
-    git remote add ${color} git@github.com:PortlandDataScienceGroup/${color}.git
+    git remote add ${name} git@github.com:${ORG}/${name}.git
 done;
-
-# git remote add origin git@github.com:PortlandDataScienceGroup/ABC.git

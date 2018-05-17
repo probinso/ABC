@@ -1,4 +1,5 @@
 {
     "username":"my_neato_username",
-    "password":"super_secret_password"
+    "password":"super_secret_password",
+    "organization":"PortlandDataScienceGroup"
 }

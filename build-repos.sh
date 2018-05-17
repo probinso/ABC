@@ -12,6 +12,7 @@ cred_file=$1;
 
 USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
+ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 
 TEAMS=$(cat ./teams.txt);
@@ -24,7 +25,7 @@ for team in $TEAMS do
          --user "${USER}:${PASS}" \
          --request POST \
          --data '{"name": "${team}","description": "ABC team ${team}","homepage": "https://github.com","private": false,"has_issues": true,"has_projects": true,"has_wiki": true}' \
-         "https://api.github.com/orgs/PortlandDataScienceGroup/repos"
+         "https://api.github.com/orgs/${ORG}/repos"
 done;
 
 ./add-admins.sh ${cred_file}
