@@ -17,15 +17,16 @@ PASS=$(cat ${cred_file} | jq --raw-output '.password')
 ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 
-for team in $(cat $TEAMS) do
-
-    curl -i \
+for team in $(cat $TEAMS); do
+    echo ${team}
+    echo curl -i \
          -H "application/vnd.github.v3+json" \
          --user "${USER}:${PASS}" \
          --request POST \
          --data '{"name": "${team}","description": "ABC team ${team}","homepage": "https://github.com","private": false,"has_issues": true,"has_projects": true,"has_wiki": true}' \
          "https://api.github.com/orgs/${ORG}/repos"
 done;
+exit
 
 ./add-admins.sh ${cred_file} ${TEAMS} ${ADMINS}
 
