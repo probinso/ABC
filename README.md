@@ -50,6 +50,13 @@ Initialize your repositories
 $ ./build-repos.sh credentials.json teams.txt admins.txt
 ```
 
+When you are done with the workshop, delete the repositories.
+Know that this process creates an access token with delete permissions.
+
+```bash
+$ ./destroy-repos.sh credentials.json teams.txt
+```
+
 # Setup - Stage Two
 
 make a list of all students' usernames `all_user_names.txt`
