@@ -3,22 +3,21 @@
 set -euo pipefail
 
 
-if (( $# != 1)); then
-    printf "Usage: %s <credentials.json>\n" "$0" >&2;
+if (( $# != 3)); then
+    printf "Usage: %s <credentials.json> <teams.txt> <admins.txt>\n" "$0" >&2;
     exit 1;
 fi;
 
 cred_file=$1;
+TEAMS=$2
+ADMINS=$3
 
 USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
 ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 
-TEAMS=$(cat ./teams.txt);
-
-
-for team in $TEAMS do
+for team in $(cat $TEAMS) do
 
     curl -i \
          -H "application/vnd.github.v3+json" \
@@ -28,9 +27,9 @@ for team in $TEAMS do
          "https://api.github.com/orgs/${ORG}/repos"
 done;
 
-./add-admins.sh ${cred_file}
+./add-admins.sh ${cred_file} ${TEAMS} ${ADMINS}
 
-./initialize-ssh.sh
+./initialize-ssh.sh ${cred_file} ${TEAMS}
 
 git checkout master
 
