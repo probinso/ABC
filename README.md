@@ -13,6 +13,7 @@ $ git clone https://github.com/PortlandDataScienceGroup/ABC.git
 $ cd ABC
 $ git checkout speaker
 $ cp creds.json credentials.json
+$ chmod 600 credentials.json
 ```
 
 Now add your github username and password to the `credentials.json` file
@@ -51,7 +52,7 @@ $ ./build-repos.sh credentials.json teams.txt admins.txt
 
 # Setup - Stage Two
 
-make a list of all user usernames `all_user_names.txt`
+make a list of all students' usernames `all_user_names.txt`
 
 ---
 
