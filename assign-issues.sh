@@ -22,7 +22,7 @@ URL="https://${SUPURL}/${SUBURL}/raw/speaker/images/"
 
 TEMPLATE="{
   'title': 'Incorperate KEY',
-  'body': '${URL}KEY',
+  'body': '![](${URL}KEY)',
   'assignees': [
     'USER'
   ],
@@ -33,14 +33,13 @@ TEMPLATE="{
 
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
-        issue=B.png
         ls images/ | sort -R | tail -3 | while read issue; do
-            DATA=$(echo ${TEMPLATE} | sed s/USER/${uname}/g | sed s/KEY/${issue}/g)
-            echo curl -i \
+            DATA=$(echo ${TEMPLATE} | sed s/\'/\"/g | sed s/USER/${uname}/g | sed s/KEY/${issue}/g)
+            curl -i \
                  -H "application/vnd.github.v3+json" \
                  --user "${USER}:${PASS}" \
                  --request POST \
-                 --data \"${DATA}\" \
+                 --data " ${DATA} " \
                  "https://api.github.com/repos/${ORG}/${team}/issues"
         done
     done
