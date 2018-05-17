@@ -22,4 +22,5 @@ TOKEN=$(cat token.json | jq --raw-output ".token")
 
 for team in $(cat $TEAMS); do
     curl -X DELETE -H "Authorization: token ${TOKEN}" https://api.github.com/repos/${ORG}/${team}
+    git remote rm $team
 done;
