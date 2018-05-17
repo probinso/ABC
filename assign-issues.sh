@@ -31,10 +31,15 @@ TEMPLATE="{
   ]
 }"
 
+DIRPATH=./images/
+ISSUECOUNT=3
+
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
-        ls images/ | sort -R | tail -3 | while read issue; do
+        ls ${DIRPATH} | sort -R | tail -${ISSUECOUNT} | while read issue; do
             DATA=$(echo ${TEMPLATE} | sed s/\'/\"/g | sed s/USER/${uname}/g | sed s/KEY/${issue}/g)
+            rm ${DIRPATH}/${issue}
+            rm images
             curl -i \
                  -H "application/vnd.github.v3+json" \
                  --user "${USER}:${PASS}" \
@@ -43,4 +48,5 @@ for team in $(cat ${TEAMS}); do
                  "https://api.github.com/repos/${ORG}/${team}/issues"
         done
     done
+    git checkout ${DIRPATH}
 done
