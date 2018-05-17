@@ -8,8 +8,10 @@ The students are atomatically enrolled onto teams, and assigned `issues` that co
 
 # Setup - Stage One
 
+In order to administrate this workshop, you will need to have `ssh-keys` setup for permissions on `github`.
+
 ```
-$ git clone https://github.com/PortlandDataScienceGroup/ABC.git
+$ git clone git@github.com:probinso/ABC.git
 $ cd ABC
 $ git checkout speaker
 $ cp creds.json credentials.json
