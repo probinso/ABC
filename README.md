@@ -59,6 +59,27 @@ Know that this process creates an access token with delete permissions.
 $ ./destroy-repos.sh credentials.json teams.txt
 ```
 
+To monitor progress of team `green`...
+
+```bash
+$ git fetch --all
+Fetching origin
+Fetching green
+
+$ git diff master green/master
+diff --git a/README.md b/README.md
+index da5093e..36c3ee7 100644
+--- a/README.md
++++ b/README.md
+@@ -2,3 +2,6 @@
+
+ An Apparition of her lover She recognizes with dismay;
+ and later on she will discover that he himself had died today.
++
++The Yegg on rubber soles comes creeping Inside the house when it is late,
++And while the occupants are sleeping, Removes the heirlooms and the plate.
+```
+
 # Setup - Stage Two
 
 make a list of all students' usernames `all_user_names.txt`
