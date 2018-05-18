@@ -14,10 +14,14 @@ ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 TEAMS=$2;
 
+ISSUEPATH=images
+ISSUECOUNT=3
+
 ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
 SUBURL=${ORIGIN#*:}
 SUPURL=$(echo ${ORIGIN} | awk -F[@:] '{print $2}')
-URL="https://${SUPURL}/${SUBURL}/raw/speaker/images/"
+# URL construction works with github/gitlab perhaps not other providers
+URL="https://${SUPURL}/${SUBURL}/raw/speaker/${ISSUEPATH}/"
 
 TEMPLATE="{
   'title': 'Incorperate KEY',
@@ -30,15 +34,11 @@ TEMPLATE="{
   ]
 }"
 
-DIRPATH=./images/
-ISSUECOUNT=3
-
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
-        ls ${DIRPATH} | sort -R | tail -${ISSUECOUNT} | while read issue; do
-            DATA=$(echo ${TEMPLATE} | sed s/\'/\"/g | sed s/USER/${uname}/g | sed s/KEY/${issue}/g)
-            rm ${DIRPATH}/${issue}
-            rm images
+        ls ${DIRPATH} | sort -R | tail -${ISSUECOUNT} | while read issue_key; do
+            DATA=$(echo ${TEMPLATE} | sed s/\'/\"/g | sed s/USER/${uname}/g | sed s/KEY/${issue_key}/g)
+            rm ./${ISSUEPATH}/${issue_key}
             curl -i \
                  -H "application/vnd.github.v3+json" \
                  --user "${USER}:${PASS}" \
