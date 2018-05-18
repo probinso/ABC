@@ -1,10 +1,22 @@
 # Introduction
 
-This talk is an introductary workshop to collaborating in git. The `speaker` branch provides administration tools to run manage this talk for a large audience. This may be overkill on the order of less than 10, but should scale to nearly 40 people with little overhead.
+This talk is an introductary workshop to collaborating in git. The `speaker` branch provides administration tools to run manage this talk for a large audience. This may be overkill on the order of less than 10, but should scale with little overhead.
+
+The current paired slides are located [here](https://github.com/probinso/introduction-git).
+
+### Dependencies
+
+This material depends on Github api, so would cost effort to support other hosts. It also requires that you have a Github `organization` setup that you are administrator for. (These programs are availible in most unix package managers, including `homebrew`)
+
+- bash
+- git
+- jq
+- curl
+- sed
 
 # Goal
 
-The students are atomatically enrolled onto teams, and assigned `issues` that contain a commic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by their assigned letter. Participants will be assigned multiple letters.
+The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by their assigned letter. Participants will be assigned multiple letters.
 
 # Setup - Stage One
 
@@ -18,7 +30,7 @@ $ cp creds.json credentials.json
 $ chmod 600 credentials.json
 ```
 
-Now add your github username and password to the `credentials.json` file
+Now add your github username and password to the `credentials.json` file. Also your `organization` must already exist, on `Github`, and you must be an admin.
 
 ```json
 {
@@ -52,13 +64,6 @@ Initialize your repositories
 $ ./build-repos.sh credentials.json teams.txt admins.txt
 ```
 
-When you are done with the workshop, delete the repositories.
-Know that this process creates an access token with delete permissions.
-
-```bash
-$ ./destroy-repos.sh credentials.json teams.txt
-```
-
 To monitor progress of team `green`...
 
 ```bash
@@ -80,21 +85,32 @@ index da5093e..36c3ee7 100644
 +And while the occupants are sleeping, Removes the heirlooms and the plate.
 ```
 
+When you are done with the workshop, delete the repositories.
+Know that this process creates an access token with delete permissions.
+
+```bash
+$ ./destroy-repos.sh credentials.json teams.txt
+```
+
 # Setup - Stage Two
 
-make a list of all students' usernames `all_user_names.txt`
+If you have a master list of users, then you can break it up with
 
----
-
-
-Once you accept all your team invites :)
-
-```
-$ ./fetch-all.sh
+```bash
+$ split -l 10 all_user_names.txt # should rename output files to team names
 ```
 
-You will be much happier administrating the talk if you have ssh keys setup
+For each team, listed in `teams.txt` you should have a cooresponding `<team-name>.txt` that names the members assigned to that team.
+To populate a team.
 
+```bash
+$ ./populate-team.sh credentials.json teams.txt
 ```
-$ split -l 10 all_user_names.txt
+
+All your participants should now accept the invites. This is nessicary for issue assignment.
+
+Once accepted, you can assign issues with
+
+```bash
+$ ./assign-issues.sh credentials.json teams.txt
 ```
