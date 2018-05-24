@@ -1,6 +1,6 @@
 # Introduction
 
-This talk is an introductary workshop to collaborating in git. The `speaker` branch provides administration tools to run manage this talk for a large audience. This may be overkill on the order of less than 10, but should scale with little overhead.
+This talk is an introductary workshop to collaborating in git. The `speaker` branch provides administration tools to run manage this talk for a large audience. This may be overkill on the order of less than 10, but should scale with little overhead to a large audience.
 
 The current paired slides are located [here](https://github.com/probinso/introduction-git).
 
@@ -22,7 +22,7 @@ The students are atomatically enrolled onto teams, and assigned `issues` that co
 
 In order to administrate this workshop, you will need to have `ssh-keys` setup for permissions on `github`.
 
-**Note that \*.json is included in `.gitigore`, so new files shouldn't be added to ledger**
+**Note that \*.json is included in `.gitigore`, so password contents files shouldn't be added to ledger**
 
 ```
 $ git clone git@github.com:probinso/ABC.git
@@ -51,6 +51,8 @@ cedarmora
 ```
 
 Place the team names into `teams.txt`
+
+**TEAM NAMES WILL NAME REPOSITORIES THAT DON'T YET EXIST, COULD BE DANGEROUS FOR EXISTING REPOSITORIES**
 
 ```text
 yellow
@@ -114,5 +116,5 @@ All your participants should now accept the invites. This is nessicary for issue
 Once accepted, you can assign issues with
 
 ```bash
-$ ./assign-issues.sh credentials.json teams.txt
+$ ./assign-issues.sh credentials.json teams.txt 3 # count of issues per person
 ```

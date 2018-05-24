@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if (( $# != 2)); then
-    printf "Usage: %s credentials.json <teams.txt>\n" "$0" >&2;
+if (( $# != 3)); then
+    printf "Usage: %s credentials.json <teams.txt> <issues/person>\n" "$0" >&2;
     exit 1;
 fi;
 
@@ -15,7 +15,7 @@ ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 TEAMS=$2;
 
 ISSUEPATH=images
-ISSUECOUNT=3
+ISSUECOUNT=$3
 
 ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
 SUBURL=${ORIGIN#*:}
