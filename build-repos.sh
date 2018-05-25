@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
@@ -13,7 +13,7 @@ ADMINS=$3
 
 USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
-ORG=$(cat ${cred_file} | jq --raw-output '.organization')
+ORG=$(cat ${cred_file}  | jq --raw-output '.organization')
 
 
 NAMES=$(cat $TEAMS)
@@ -31,8 +31,7 @@ done;
 
 ./initialize-ssh.sh ${cred_file} ${TEAMS}
 
-git checkout master
 
 for team in $NAMES; do
-    git push -u $team master
+    git push -u $team master:master
 done
