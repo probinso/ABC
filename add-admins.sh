@@ -16,6 +16,7 @@ PASS=$(cat ${cred_file} | jq --raw-output '.password')
 ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 for team in $(cat ${TEAMS}); do
+    sleep 1;
     for admin in $(cat ${ADMINS}); do
         curl -i \
              -H "application/vnd.github.v3+json" \

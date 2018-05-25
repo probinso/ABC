@@ -19,6 +19,7 @@ ORG=$(cat ${cred_file}  | jq --raw-output '.organization')
 NAMES=$(cat $TEAMS)
 
 for team in $NAMES; do
+    sleep 1
     curl -i \
          -H "application/vnd.github.v3+json" \
          --user "${USER}:${PASS}" \
