@@ -1,1 +1,4 @@
-white
+blue
+yellow
+green
+red
