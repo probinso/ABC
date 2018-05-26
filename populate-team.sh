@@ -14,8 +14,9 @@ USER=$(cat ${cred_file} | jq --raw-output '.username')
 PASS=$(cat ${cred_file} | jq --raw-output '.password')
 ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
-for team in $(cat $TEAMS); do 
+for team in $(cat $TEAMS); do
     for uname in $(cat ${team}.txt); do
+        sleep 1;
         curl -i \
              -H "application/vnd.github.v3+json" \
              --user "${USER}:${PASS}" \
