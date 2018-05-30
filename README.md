@@ -83,7 +83,7 @@ $ ./destroy-repos.sh credentials.json teams.txt
 When you clone the repository, please use the `git@github.com:...` address in order to insure the use of your `ssh-keys`. If you are an admin/TA, but not running the talk, you can initialize without creating repositories with
 
 ```bash
-$ ./initialize-ssh.sh credentials.json teams.txt # make sure this is the same as lead speaker
+$ ./initialize-ssh.sh credentials.json teams.txt # make sure teams.txt is the same as lead speaker
 ```
 
 If you have a singular master list of users, then you can break it up with
