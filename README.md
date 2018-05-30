@@ -6,6 +6,8 @@ The current paired slides are located [here](https://github.com/probinso/introdu
 
 ### Dependencies
 
+**This has been successfully tested in a linux system, unsuccessful on darwin/macosx**
+
 This material depends on Github api, so would cost effort to support other hosts. It also requires that you have a Github `organization` setup that you are administrator for. (These programs are availible in most unix package managers, including `homebrew`)
 
 - bash
@@ -18,7 +20,7 @@ This material depends on Github api, so would cost effort to support other hosts
 
 The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by their assigned letter. Participants will be assigned multiple letters.
 
-# Setup - Stage One
+# Setup - For Lead Speaker
 
 In order to administrate this workshop, you will need to have `ssh-keys` setup for permissions on `github`.
 
@@ -68,6 +70,42 @@ Initialize your repositories
 $ ./build-repos.sh credentials.json teams.txt admins.txt
 ```
 
+When you are done with the workshop, delete the repositories.
+Know that this process creates an access token with delete permissions.
+
+```bash
+$ ./destroy-repos.sh credentials.json teams.txt
+```
+
+# Setup - For admins/TAs
+
+When you clone the repository, please use the `git@github.com:...` address in order to insure the use of your `ssh-keys`. If you are an admin/TA, but not running the talk, you can initialize without creating repositories with
+
+```bash
+$ ./initialize-ssh.sh credentials.json teams.txt # make sure this is the same as lead speaker
+```
+
+If you have a singular master list of users, then you can break it up with
+
+```bash
+$ split -l 10 all_user_names.txt # should rename output files to team names
+```
+
+For each team, listed in `teams.txt` you should have a cooresponding `<team-name>.txt` that names the members assigned to that team.
+To populate a team.
+
+```bash
+$ ./populate-team.sh credentials.json teams.txt
+```
+
+All your participants should now accept the invites. This is nessicary for issue assignment.
+
+Once accepted, you can assign issues with
+
+```bash
+$ ./assign-issues.sh credentials.json teams.txt 3 # count of issues per person
+```
+
 To monitor progress of team `green`...
 
 ```bash
@@ -87,34 +125,4 @@ index da5093e..36c3ee7 100644
 +
 +The Yegg on rubber soles comes creeping Inside the house when it is late,
 +And while the occupants are sleeping, Removes the heirlooms and the plate.
-```
-
-When you are done with the workshop, delete the repositories.
-Know that this process creates an access token with delete permissions.
-
-```bash
-$ ./destroy-repos.sh credentials.json teams.txt
-```
-
-# Setup - Stage Two
-
-If you have a master list of users, then you can break it up with
-
-```bash
-$ split -l 10 all_user_names.txt # should rename output files to team names
-```
-
-For each team, listed in `teams.txt` you should have a cooresponding `<team-name>.txt` that names the members assigned to that team.
-To populate a team.
-
-```bash
-$ ./populate-team.sh credentials.json teams.txt
-```
-
-All your participants should now accept the invites. This is nessicary for issue assignment.
-
-Once accepted, you can assign issues with
-
-```bash
-$ ./assign-issues.sh credentials.json teams.txt 3 # count of issues per person
 ```

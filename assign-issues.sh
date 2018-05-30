@@ -34,12 +34,14 @@ TEMPLATE="{
   ]
 }"
 
+RND=shuf # homebrew sort doesn't have -R flag
+
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
-        sleep .5
-        ls ${ISSUEPATH} | sort -R | tail -${ISSUECOUNT} | while read issue_key; do
+        ls ${ISSUEPATH} | ${RND} | tail -${ISSUECOUNT} | while read issue_key; do
             DATA=$(echo ${TEMPLATE} | sed s/\'/\"/g | sed s/USER/${uname}/g | sed s/KEY/${issue_key}/g)
             rm ./${ISSUEPATH}/${issue_key}
+            sleep 1
             curl -i \
                  -H "application/vnd.github.v3+json" \
                  --user "${USER}:${PASS}" \
