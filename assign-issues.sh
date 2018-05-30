@@ -19,6 +19,7 @@ ISSUECOUNT=$3
 
 ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
 SUBURL=${ORIGIN#*:}
+SUBURL=${SUBURL%.git} # remove .git if exists, depends on commands
 SUPURL=$(echo ${ORIGIN} | awk -F[@:] '{print $2}')
 # URL construction works with github/gitlab perhaps not other providers
 URL="https://${SUPURL}/${SUBURL}/raw/speaker/${ISSUEPATH}/"
