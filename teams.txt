@@ -1,6 +1,2 @@
-white
 purple
-blue
 yellow
-green
-red
