@@ -6,6 +6,8 @@ The current paired slides are located [here](https://github.com/probinso/introdu
 
 ### Dependencies
 
+**This has been successfully tested in a linux system, unsuccessful on darwin/macosx**
+
 This material depends on Github api, so would cost effort to support other hosts. It also requires that you have a Github `organization` setup that you are administrator for. (These programs are availible in most unix package managers, including `homebrew`)
 
 - bash
