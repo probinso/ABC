@@ -4,7 +4,7 @@ This talk is an introductary workshop to collaborating in git. The `speaker` bra
 
 The current paired slides are located [here](https://github.com/probinso/introduction-git).
 
-When you clone the repository please use this form : `git@github.com:<u{ser/org}name>/ABC.git`
+When you clone the repository please use this form : `git@github.com:<username/organization>/ABC.git`
 
 ### Dependencies
 
