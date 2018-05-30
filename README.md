@@ -15,6 +15,7 @@ This material depends on Github api, so would cost effort to support other hosts
 - jq
 - curl
 - sed
+- shuf
 
 # Goal
 
