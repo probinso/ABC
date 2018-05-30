@@ -20,7 +20,7 @@ This material depends on Github api, so would cost effort to support other hosts
 
 The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by their assigned letter. Participants will be assigned multiple letters.
 
-# Setup - Stage One
+# Setup - For Lead Speaker
 
 In order to administrate this workshop, you will need to have `ssh-keys` setup for permissions on `github`.
 
@@ -77,15 +77,15 @@ Know that this process creates an access token with delete permissions.
 $ ./destroy-repos.sh credentials.json teams.txt
 ```
 
-# Setup - Stage Two
+# Setup - For admins/TAs
 
-If you are an admin, but not running the talk, you can initialize without creating repositories with
+When you clone the repository, please use the `git@github.com:...` address in order to insure the use of your `ssh-keys`. If you are an admin/TA, but not running the talk, you can initialize without creating repositories with
 
 ```bash
-$ ./initialize-ssh.sh credentials.json teams.txt
+$ ./initialize-ssh.sh credentials.json teams.txt # make sure this is the same as lead speaker
 ```
 
-If you have a master list of users, then you can break it up with
+If you have a singular master list of users, then you can break it up with
 
 ```bash
 $ split -l 10 all_user_names.txt # should rename output files to team names
