@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 white
 purple
-=======
 blue
 yellow
 green
 red
->>>>>>> 17f6eb3cd44b69bf1b2a8060c4d52d97b5dcc106
