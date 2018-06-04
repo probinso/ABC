@@ -12,7 +12,7 @@ When you clone the repository please use this form : `git@github.com:<username/o
 
 This material depends on Github api, so would cost effort to support other hosts. It also requires that you have a Github `organization` setup that you are administrator for. (These programs are availible in most unix package managers, including `homebrew`)
 
-**I believe this can work in `brew` if you install `coreutils` then alias gshuf to shuf**
+**I believe this can work in `brew` if you install `coreutils` then alias `gshuf` to `shuf`**
 
 - bash
 - git
