@@ -2,7 +2,7 @@
 
 This talk is an introductary workshop to collaborating in git. The `speaker` branch provides administration tools to run manage this talk for a large audience. This may be overkill on the order of less than 10, but should scale with little overhead to a large audience.
 
-The current paired slides are located [here](https://github.com/probinso/introduction-git). The bulk of the talk, including exercise, takes ~ 1.5 hours. The tail slides are special topics, and are useful aids.
+The current paired slides are located **[here](https://github.com/probinso/introduction-git)**. The bulk of the talk, including exercise, takes ~ 1.5 hours. The tail slides are special topics, and are useful aids.
 
 When you clone the repository please use this form : `git@github.com:<username/organization>/ABC.git`
 
