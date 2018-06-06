@@ -35,7 +35,7 @@ TEMPLATE="{
   ]
 }"
 
-RND=shuf # homebrew sort doesn't have -R flag
+RND=shuf # homebrew `sort` doesn't have -R flag, so must use shuf instead
 
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
