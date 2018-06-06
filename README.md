@@ -8,11 +8,11 @@ When you clone the repository please use this form : `git@github.com:<username/o
 
 ### Dependencies
 
-**This has been successfully tested in a linux system, tested to be unsuccessful on darwin/macosx**
+**This has been successfully tested in a linux system and on darwin/macosx**
 
 This material depends on Github api, so would cost effort to support other hosts. It also requires that you have a Github `organization` setup that you are administrator for. (These programs are availible in most unix package managers, including `homebrew`)
 
-**I believe this can work in `brew` if you install `coreutils` then alias `gshuf` to `shuf`**
+**OSX requires in `brew` if you install `coreutils` then alias `gshuf` to `shuf`**
 
 - bash
 - git
