@@ -8,6 +8,10 @@ The current paired slides are located **[here](https://github.com/probinso/intro
 
 Some of the operations, run by the scripts, are composed from `sed` and `awk` commands. This means that strings that malformed user specified content may not produce results as expected. When you clone the repository please use this form `git@github.com:<username/organization>/ABC.git`. note that `git@`, `:`, and `.git` are all included.
 
+```
+$ git clone git@github.com:probinso/ABC.git
+```
+
 ### Dependencies
 
 **This has been successfully tested in a linux system and on darwin/macosx**
