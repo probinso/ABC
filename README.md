@@ -4,7 +4,9 @@ This talk is an introductary workshop to collaborating in git. The `speaker` bra
 
 The current paired slides are located **[here](https://github.com/probinso/introduction-git)**. The bulk of the talk, including exercise, takes ~ 1.5 hours. The tail slides are special topics, and are useful aids.
 
-When you clone the repository please use this form : `git@github.com:<username/organization>/ABC.git`
+### Warning
+
+Some of the operations, run by the scripts, are composed from `sed` and `awk` commands. This means that strings that malformed user specified content may not produce results as expected. When you clone the repository please use this form : `git@github.com:<username/organization>/ABC.git`. note that `git@`, `:`, and `.git` are all included.
 
 ### Dependencies
 
@@ -19,6 +21,7 @@ This material depends on Github api, so would cost effort to support other hosts
 - jq
 - curl
 - sed
+- awk
 - shuf
 
 # Goal
