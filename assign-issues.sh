@@ -14,7 +14,7 @@ ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 TEAMS=$2;
 
-ISSUEPATH=images
+ISSUEPATH=images/*.png
 ISSUECOUNT=$3
 
 ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
