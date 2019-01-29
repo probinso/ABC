@@ -30,7 +30,7 @@ This material depends on Github api, so would cost effort to support other hosts
 
 # Goal
 
-The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by their assigned letter. Participants will be assigned multiple letters.
+The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by the emphasised letter. Participants will be assigned multiple letters.
 
 # Setup - For Lead Speaker
 
