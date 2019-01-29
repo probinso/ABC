@@ -14,7 +14,7 @@ ORG=$(cat ${cred_file} | jq --raw-output '.organization')
 
 TEAMS=$2;
 
-ISSUEPATH=images
+ISSUEPATH=images/*.png
 ISSUECOUNT=$3
 
 ORIGIN=$(git remote -v | grep origin | head -n 1 | awk '{print $2}')
@@ -35,7 +35,7 @@ TEMPLATE="{
   ]
 }"
 
-RND=shuf # homebrew sort doesn't have -R flag
+RND=shuf # homebrew `sort` doesn't have -R flag, so must use shuf instead
 
 for team in $(cat ${TEAMS}); do
     for uname in $(cat "${team}.txt"); do
