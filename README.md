@@ -16,7 +16,7 @@ $ git clone git@github.com:probinso/ABC.git
 
 **This has been successfully tested in a linux system and on darwin/macosx**
 
-This material depends on Github api, so would cost effort to support other hosts. It also requires that you have a Github `organization` setup that you are administrator for. (These programs are availible in most unix package managers, including `homebrew`)
+This material depends on Github api, please submit an issue if you would like it extended to another provider like `gitlab`. Currently this requires that you have a Github `organization` setup that you are administrator for.
 
 **OSX requires in `brew` if you install `coreutils` then alias `gshuf` to `shuf`**
 
@@ -27,6 +27,9 @@ This material depends on Github api, so would cost effort to support other hosts
 - sed
 - awk
 - shuf
+
+These programs are availible in most *nix package managers, including `homebrew`
+
 
 # Goal
 
@@ -66,7 +69,7 @@ cedarmora
 
 Place the team names into `teams.txt`
 
-**CHOOSE TEAM-REPOSITORY NAMES THAT DON'T YET EXIST, COULD BE DANGEROUS FOR EXISTING REPOSITORIES**
+**CHOOSE TEAM-REPOSITORY NAMES THAT DON'T YET EXIST. THE `destroy-repos.sh` SCRIPTS DELETE THESE REPOS AND IT COULD BE DANGEROUS FOR EXISTING REPOSITORIES**
 
 ```text
 yellow
