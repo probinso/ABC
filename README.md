@@ -4,6 +4,10 @@ This talk is an introductary workshop to collaborating in git. The `speaker` bra
 
 The current paired slides are located **[here](https://github.com/probinso/introduction-git)**. The bulk of the talk, including exercise, takes ~ 1.5 hours. The tail slides are special topics, and are useful aids.
 
+# Goal
+
+The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by the emphasised letter. Participants will be assigned multiple letters.
+
 ### Warning
 
 Some of the operations, run by the scripts, are composed from `sed` and `awk` commands. This means that malformed strings specified by users may not produce results as expected. When you clone the repository please use this form `git@github.com:<username/organization>/ABC.git`. note that `git@`, `:`, and `.git` are all included.
@@ -29,11 +33,6 @@ This material depends on Github api, please submit an issue if you would like it
 - shuf
 
 These programs are availible in most *nix package managers, including `homebrew`
-
-
-# Goal
-
-The students are atomatically enrolled onto teams, and assigned `issues` that contain a comic pannel, with an emphasised letter. The student's goal is to commit the text from their `issues` to `README.md`, ordered by the emphasised letter. Participants will be assigned multiple letters.
 
 # Setup - For Lead Speaker
 
